@@ -2306,6 +2306,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -2330,6 +2338,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -4334,20 +4350,20 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:QuantityBox"
-        "ProductCode" = "8:{D799F02E-7624-4F83-B086-718EECFF268E}"
-        "PackageCode" = "8:{9103B469-59CC-4C71-98A0-76B1F66EB767}"
+        "ProductName" = "8:RevitAddinInstaller"
+        "ProductCode" = "8:{7156080B-5E20-4BF8-864A-747B8718F00F}"
+        "PackageCode" = "8:{E015F4DC-2D42-4BBC-A6EA-26D6C5C38072}"
         "UpgradeCode" = "8:{2775DBBA-49C9-4873-992D-F7F665100167}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.1.0-alphao"
+        "ProductVersion" = "8:0.1.0"
         "Manufacturer" = "8:Lambda Ingenieria e Innovacion"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:QuantityBox"
+        "Title" = "8:RevitAddinInstaller"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Rivers Code"
         "Keywords" = "8:"

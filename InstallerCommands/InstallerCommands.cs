@@ -6,7 +6,6 @@ using System.Configuration.Install;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace InstallerCommands
@@ -15,8 +14,8 @@ namespace InstallerCommands
     public partial class InstallerCommands : System.Configuration.Install.Installer
     {
         AddinType addinType = AddinType.Command;
-        string commandProject = "RevitSimpleCommand";
-        string commandName = "CmdHelloWorld";
+        string commandProject = "QuantityBox";
+        string commandName = "CmdQuantityBox";
         string companyName = "Lambda Ingenieria e Innovacion";
         string companyURL = "https://lambda.com.pe/";
         public InstallerCommands()
@@ -69,7 +68,7 @@ namespace InstallerCommands
             }
             catch (Exception excpt)
             {
-                MessageBox.Show(excpt.Message);
+                System.Windows.Forms.MessageBox.Show(excpt.Message);
             }
         }
 
@@ -97,7 +96,7 @@ namespace InstallerCommands
                 }
                 catch (Exception excpt)
                 {
-                    MessageBox.Show(excpt.Message);
+                    System.Windows.Forms.MessageBox.Show(excpt.Message);
                 }
             }
         }

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace QuantityBox
+namespace CmdQuantityBox
 {
     public class Utils
     {
