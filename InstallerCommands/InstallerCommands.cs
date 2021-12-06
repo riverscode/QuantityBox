@@ -73,6 +73,34 @@ namespace InstallerCommands
             }
         }
 
+        /*
+            ####### METODO DE DESINSTALACION #######
+        */
+
+        public override void Uninstall(IDictionary stateSaver)
+        {
+            string sDir = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Autodesk\\Revit\\Addins";
+            bool exists = Directory.Exists(sDir);
+
+            Microsoft.Win32.RegistryKey rkbase = null;
+            rkbase = Microsoft.Win32.RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, Microsoft.Win32.RegistryView.Registry64);
+            rkbase.DeleteSubKeyTree($"SOFTWARE\\Wow6432Node\\${companyName}\\Revit API NuGet Example 2019 Packages");
+
+            if (exists)
+            {
+                try
+                {
+                    foreach (string d in Directory.GetDirectories(sDir))
+                    {
+                        File.Delete(d + "\\" + commandProject + ".addin");
+                    }
+                }
+                catch (Exception excpt)
+                {
+                    MessageBox.Show(excpt.Message);
+                }
+            }
+        }
     }
     enum AddinType
     {

@@ -1906,7 +1906,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7AD6194FBD9FCA1BFF0E848BBFD37674"
+        "OwnerKey" = "8:_8222A87FDB2F470D81B938F3E0E1D336"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2242,12 +2242,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8222A87FDB2F470D81B938F3E0E1D336"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_345D6174A7010C6DBB2320BB54C5D20C"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2281,6 +2275,12 @@
         "OwnerKey" = "8:_F77C51D94DC98A3A0476CD3623A6411F"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7AD6194FBD9FCA1BFF0E848BBFD37674"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -2299,6 +2299,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -2315,6 +2323,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -4318,22 +4334,22 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:RevitAddinInstaller"
-        "ProductCode" = "8:{519B09C8-05F8-4CFA-8328-3B75614E1A03}"
-        "PackageCode" = "8:{4E699A24-0D56-41BD-8178-9E69F6A8AC60}"
+        "ProductName" = "8:QuantityBox"
+        "ProductCode" = "8:{D799F02E-7624-4F83-B086-718EECFF268E}"
+        "PackageCode" = "8:{9103B469-59CC-4C71-98A0-76B1F66EB767}"
         "UpgradeCode" = "8:{2775DBBA-49C9-4873-992D-F7F665100167}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "ProductVersion" = "8:0.1.0-alphao"
+        "Manufacturer" = "8:Lambda Ingenieria e Innovacion"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:RevitAddinInstaller"
+        "Title" = "8:QuantityBox"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:Rivers Code"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
