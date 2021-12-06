@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantityBox", "QuantityBox\QuantityBox.csproj", "{912421B6-6A54-4631-BC06-D6468F75D4A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallerCommands", "InstallerCommands\InstallerCommands.csproj", "{30B7BE10-1636-48AA-B711-9B922E265CE1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RevitAddinInstaller", "RevitAddinInstaller\RevitAddinInstaller.vdproj", "{98C303C5-3ECB-4AD1-8EC8-AF948F66DC20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,12 @@ Global
 		{912421B6-6A54-4631-BC06-D6468F75D4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{912421B6-6A54-4631-BC06-D6468F75D4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{912421B6-6A54-4631-BC06-D6468F75D4A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30B7BE10-1636-48AA-B711-9B922E265CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30B7BE10-1636-48AA-B711-9B922E265CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30B7BE10-1636-48AA-B711-9B922E265CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30B7BE10-1636-48AA-B711-9B922E265CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98C303C5-3ECB-4AD1-8EC8-AF948F66DC20}.Debug|Any CPU.ActiveCfg = Debug
+		{98C303C5-3ECB-4AD1-8EC8-AF948F66DC20}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
