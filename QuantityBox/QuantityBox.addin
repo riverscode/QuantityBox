@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Assembly>QuantityBox.dll</Assembly>
+		<AddInId>49F3DB51-3A9F-409A-A86D-5C6886BC5A0D</AddInId>
+		<FullClassName>QuantityBox.CmdQuantityBox</FullClassName>
+		<Text>QuantityBox</Text>
+		<VendorId>ADSK</VendorId>
+		<VendorDescription>Lambda Ingenieria e Innovacion, https://lambda.com.pe</VendorDescription>
+		<VisibilityMode>NotVisibleInFamily</VisibilityMode>
+		<Discipline>Any</Discipline>
+	</AddIn>
+</RevitAddIns>
