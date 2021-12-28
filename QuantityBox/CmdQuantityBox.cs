@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
 
 // Revit API Namespaces
@@ -22,69 +20,66 @@ namespace CmdQuantityBox
                                             ref string message,
                                             ElementSet elements)
         {
+            // Access the document
             UIApplication uiApp = commandData.Application;
             UIDocument uiDoc = uiApp.ActiveUIDocument;
             _doc = uiDoc.Document;
 
-            ElementId enviromentElementId = uiDoc.Selection.PickObject(ObjectType.Element, "Select element").ElementId;
-            Element enviromentElement = _doc.GetElement(enviromentElementId);
+            // User select the generic model
+            ElementId genericModelElementId = uiDoc.Selection.PickObject(ObjectType.Element, "Select element").ElementId;
+            Element genericModelElement = _doc.GetElement(genericModelElementId);
 
-            string enviromentName = enviromentElement.Name;
+            BoundingBoxXYZ bb = genericModelElement.get_BoundingBox(_doc.ActiveView); // Get the BoundingBox from generic model
+            Outline outline = new Outline(bb.Min, bb.Max);// Generate Outline from Bounding Box
 
+            BoundingBoxIntersectsFilter bbfilter = new BoundingBoxIntersectsFilter(outline); // Create filter rule from BoundingBox
+
+            // Create list with generic model element
             ICollection<ElementId> idsExclude = new List<ElementId>();
+            idsExclude.Add(genericModelElement.Id);
 
-            BoundingBoxXYZ bb = enviromentElement.get_BoundingBox(_doc.ActiveView);
-            Outline outline = new Outline(bb.Min, bb.Max);
-            BoundingBoxIntersectsFilter bbfilter = new BoundingBoxIntersectsFilter(outline);
+            // Filter elements with boundingBox filter rule and exclude the generic model element
+            FilteredElementCollector elementInCurrentViewCollector = new FilteredElementCollector(_doc, _doc.ActiveView.Id); // All element in current active view
+            List<Element> intersectedElements = elementInCurrentViewCollector.Excluding(idsExclude).WherePasses(bbfilter).ToList(); // analysis elements
 
-            idsExclude.Add(enviromentElement.Id);
-
-            FilteredElementCollector elementInCurrentViewCollector = new FilteredElementCollector(_doc, _doc.ActiveView.Id);
-            List<Element> intersectedElements = elementInCurrentViewCollector.Excluding(idsExclude).WherePasses(bbfilter).ToList();
-
+            // if there is no intersecting element
             if (intersectedElements.Count == 0)
             {
-                TaskDialog.Show("Title", "No hay elementos dentro del area");
+                TaskDialog.Show("Warning", "No hay elementos dentro del area");
                 return Result.Cancelled;
             }
 
-            Solid enviromentSolid = Utils.GetSolidElement(_doc, enviromentElement);
+            // Create solid from generic model
+            Solid enviromentSolid = Utils.GetSolidElement(_doc, genericModelElement);
 
-            Excel.Application xlApp = new Excel.Application();
+            // Excel export
+            Excel.Application xlApp = new Excel.Application(); // Create Aplication Excel Object
 
-            xlApp.Visible = false;
-            xlApp.DisplayAlerts = false;
+            xlApp.Visible = false; // Hide Excel Aplication
+            xlApp.DisplayAlerts = false; // Hide Excel Alert
 
-            Excel.Workbook xlWorkBook = xlApp.Workbooks.Add(Type.Missing);
-            Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Excel.Workbook xlWorkBook = xlApp.Workbooks.Add(Type.Missing); // Create a Workbook
+            Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1); // Select the first Worksheets on workbook
 
-            TaskDialog.Show("Title", intersectedElements.Count.ToString());
-            int rowIndex = 4;
-            foreach (Element e in intersectedElements)
+            // Write information on worksheet
+            int rowIndex = 4; // row start
+            foreach (Element intersectedElement in intersectedElements)
             {
-                Solid intersectedSolid = Utils.GetSolidElement(_doc, e);
+                Solid intersectedSolid = Utils.GetSolidElement(_doc, intersectedElement); // Create solid from current intersectedElement
 
-                if (intersectedSolid == null) continue;
+                if (intersectedSolid == null) continue; // if the current intersectedElement don't have solid
 
-                Solid newSolid = BooleanOperationsUtils.ExecuteBooleanOperation(intersectedSolid, enviromentSolid, BooleanOperationsType.Intersect);
+                Solid intersectSolid = BooleanOperationsUtils.ExecuteBooleanOperation(intersectedSolid, enviromentSolid, BooleanOperationsType.Intersect); // create solid from intersect from generic model solid and intersected element
 
-                if (newSolid == null) continue;
+                if (intersectSolid == null) continue; // if the current intersectedElement don't have solid
 
-                double solidPercentage = newSolid.Volume / intersectedSolid.Volume;
+                double solidPercentage = intersectSolid.Volume / intersectedSolid.Volume; // Percentage of intersect
 
-                string name = e.Name;
-
-                exportToExcel(xlWorkSheet, getElementInformation(e, solidPercentage), rowIndex);
+                exportToExcel(xlWorkSheet, getElementInformation(intersectedElement, solidPercentage), rowIndex);
                 rowIndex++;
             }
 
-            //xlWorkBook.Close(true, Type.Missing, Type.Missing);
-            //xlApp.Quit();
             xlApp.Visible = true;
-
-            //releaseObject(xlWorkSheet);
-            //releaseObject(xlWorkBook);
-            //releaseObject(xlApp);
 
             return Result.Succeeded;
         }
@@ -187,24 +182,6 @@ namespace CmdQuantityBox
             xlWorkSheet.Cells[rowIndex, 2] = elementExport.GetCategory();
             xlWorkSheet.Cells[rowIndex, 3] = elementExport.GetQuantity();
             xlWorkSheet.Cells[rowIndex, 4] = elementExport.GetSystem();
-        }
-
-        private void releaseObject(object obj)
-        {
-            try
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                obj = null;
-            }
-            catch (Exception ex)
-            {
-                obj = null;
-                TaskDialog.Show("Error", "Exception Occured while releasing object " + ex.ToString());
-            }
-            finally
-            {
-                GC.Collect();
-            }
         }
 
     }
