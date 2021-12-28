@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantityBox", "QuantityBox\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallerCommands", "InstallerCommands\InstallerCommands.csproj", "{30B7BE10-1636-48AA-B711-9B922E265CE1}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RevitAddinInstaller", "RevitAddinInstaller\RevitAddinInstaller.vdproj", "{98C303C5-3ECB-4AD1-8EC8-AF948F66DC20}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QuantityBoxInstaller", "QuantityBoxInstaller\QuantityBoxInstaller.vdproj", "{98C303C5-3ECB-4AD1-8EC8-AF948F66DC20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
