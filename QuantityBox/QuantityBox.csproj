@@ -35,16 +35,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ookii.Dialogs.Wpf, Version=5.0.0.0, Culture=neutral, PublicKeyToken=66aa232afad40158, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ookii.Dialogs.Wpf.5.0.0\lib\net462\Ookii.Dialogs.Wpf.dll</HintPath>
+      <HintPath>..\packages\Ookii.Dialogs.Wpf.5.0.1\lib\net462\Ookii.Dialogs.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
